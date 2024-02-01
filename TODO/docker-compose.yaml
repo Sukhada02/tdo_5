@@ -1,0 +1,19 @@
+version: '3'
+services:
+  backend:
+    image: server
+    ports:
+      - '9001:9001'
+    networks:
+      - backend-network
+
+  my-mongodb:
+    image: mongo:4.4
+    ports:
+      - '27017:27017'
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
+    driver: bridge
